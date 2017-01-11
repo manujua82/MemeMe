@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		951E71491E26B2AC0006AAC7 /* MemeMeTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E71481E26B2AC0006AAC7 /* MemeMeTextFieldDelegate.swift */; };
 		958A340E1E26707200612827 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958A340D1E26707200612827 /* AppDelegate.swift */; };
 		958A34101E26707200612827 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958A340F1E26707200612827 /* ViewController.swift */; };
 		958A34131E26707200612827 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 958A34111E26707200612827 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		951E71481E26B2AC0006AAC7 /* MemeMeTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeMeTextFieldDelegate.swift; sourceTree = "<group>"; };
 		958A340A1E26707200612827 /* MemeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		958A340D1E26707200612827 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		958A340F1E26707200612827 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +37,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		951E71471E26B2770006AAC7 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				951E71481E26B2AC0006AAC7 /* MemeMeTextFieldDelegate.swift */,
+			);
+			name = Delegates;
+			sourceTree = "<group>";
+		};
 		958A34011E26707100612827 = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +64,7 @@
 		958A340C1E26707200612827 /* MemeMe */ = {
 			isa = PBXGroup;
 			children = (
+				951E71471E26B2770006AAC7 /* Delegates */,
 				958A340D1E26707200612827 /* AppDelegate.swift */,
 				958A340F1E26707200612827 /* ViewController.swift */,
 				958A34111E26707200612827 /* Main.storyboard */,
@@ -138,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				958A34101E26707200612827 /* ViewController.swift in Sources */,
+				951E71491E26B2AC0006AAC7 /* MemeMeTextFieldDelegate.swift in Sources */,
 				958A340E1E26707200612827 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,6 +314,7 @@
 				958A341E1E26707200612827 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

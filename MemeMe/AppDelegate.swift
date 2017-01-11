@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  MemeMe
 //
-//  Created by Kevin Bilberry on 1/11/17.
+//  Created by Juan Salcedo on 1/11/17.
 //  Copyright © 2017 Juan Salcedo. All rights reserved.
 //
 
