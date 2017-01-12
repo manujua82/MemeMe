@@ -65,7 +65,11 @@
                                                 <action selector="shareImage:" destination="BYZ-38-t0r" id="UFL-C6-fXD"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="SFG-wo-cpN"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="SFG-wo-cpN">
+                                            <connections>
+                                                <action selector="cancelApplication:" destination="BYZ-38-t0r" id="TAQ-u3-NpT"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -103,7 +107,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="31.884057971014496" y="39.945652173913047"/>
+            <point key="canvasLocation" x="-86" y="9"/>
         </scene>
     </scenes>
 </document>

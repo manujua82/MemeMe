@@ -136,6 +136,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imageView.image!, memedImage: memedImage)
     }*/
     
+    @IBAction func cancelApplication(_ sender: Any) {
+        imageView.image = nil
+        topTextField.text = "TOP"
+        bottomTextField.text = "BOTTOM"
+        shareButton.isEnabled = false
+        
+    }
    
     @IBAction func shareImage(_ sender: Any) {
         self.memedImage = generateMemedImage()
