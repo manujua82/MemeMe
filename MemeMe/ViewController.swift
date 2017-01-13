@@ -35,7 +35,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             NSStrokeColorAttributeName: UIColor.black,
             NSForegroundColorAttributeName: UIColor.white,
             NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-            NSStrokeWidthAttributeName: -1.0]
+            NSStrokeWidthAttributeName: -5.0]
         
         initTextField(topTextField, attributes: memeTextAttributes, textDefault: "TOP")
         initTextField(bottomTextField, attributes: memeTextAttributes, textDefault: "BOTTOM")
@@ -58,19 +58,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications()
     }
-
-    @IBAction func pickAnImageFromAlbum(_ sender: Any) {
+    
+    
+    func presentPickerWith(_ sourceType: UIImagePickerControllerSourceType){
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
-        pickerController.sourceType = .photoLibrary
+        pickerController.sourceType = sourceType
         self.present(pickerController, animated: true, completion: nil)
+    }
+
+    @IBAction func pickAnImageFromAlbum(_ sender: Any) {
+       presentPickerWith(.photoLibrary)
     }
     
     @IBAction func pickAnImageFromCamera(_ sender: Any) {
-        let pickerController = UIImagePickerController()
-        pickerController.delegate = self
-        pickerController.sourceType = .camera
-        self.present(pickerController, animated: true, completion: nil)
+        presentPickerWith(.camera)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -113,10 +115,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
     }
     
+    func configureBars(_ hidden: Bool) {
+        toolbarView.isHidden = hidden
+        navigationBarView.isHidden = hidden
+        
+    }
+    
     func generateMemedImage() -> UIImage {
         
-        toolbarView.isHidden = true
-        navigationBarView.isHidden = true
+        configureBars(true)
         
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -124,8 +131,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
-        toolbarView.isHidden = false
-        navigationBarView.isHidden = false
+        configureBars(false)
         
         return memedImage
     }
@@ -149,12 +155,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let controller = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         
         controller.completionWithItemsHandler = {
-            (s, ok, items, error) in
-            if ok{
+            (_, successful, _, _) in
+            if successful{
                 let meme = Meme(topText: self.topTextField.text!, bottomText: self.bottomTextField.text!, originalImage: self.imageView.image!, memedImage: self.memedImage)
 
             }
         }
+        
         self.present(controller, animated: true, completion: nil)
         
     }
