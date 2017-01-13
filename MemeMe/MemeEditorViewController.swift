@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
@@ -27,23 +27,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         
         shareButton.isEnabled = false
         
+        
+        initTextField(topTextField, textDefault: "TOP")
+        initTextField(bottomTextField, textDefault: "BOTTOM")
+    }
+    
+    func initTextField(_ textField : UITextField, textDefault: String){
         let memeTextAttributes:[String:Any] = [
             NSStrokeColorAttributeName: UIColor.black,
             NSForegroundColorAttributeName: UIColor.white,
             NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
             NSStrokeWidthAttributeName: -5.0]
+
         
-        initTextField(topTextField, attributes: memeTextAttributes, textDefault: "TOP")
-        initTextField(bottomTextField, attributes: memeTextAttributes, textDefault: "BOTTOM")
-    }
-    
-    func initTextField(_ textField : UITextField, attributes : [String:Any], textDefault: String){
         textField.delegate = memeMeTextFieldDelegate
-        textField.defaultTextAttributes = attributes
+        textField.defaultTextAttributes = memeTextAttributes
         textField.text = textDefault
         textField.textAlignment = .center
         textField.backgroundColor = UIColor.clear
@@ -51,6 +52,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         subscribeToKeyboardNotifications()
     }
     
