@@ -138,17 +138,22 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         return memedImage
     }
     
-    /*
+    
     func save() {
-        // Create the meme
-        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imageView.image!, memedImage: memedImage)
-    }*/
+        let meme = Meme(topText: self.topTextField.text!, bottomText: self.bottomTextField.text!, originalImage: self.imageView.image!, memedImage: self.memedImage)
+        
+        // Add it to the memes array in the Application Delegate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.memes.append(meme)
+    }
     
     @IBAction func cancelApplication(_ sender: Any) {
-        imageView.image = nil
+        /*imageView.image = nil
         topTextField.text = "TOP"
         bottomTextField.text = "BOTTOM"
-        shareButton.isEnabled = false
+        shareButton.isEnabled = false*/
+        self.dismiss(animated: true, completion: nil)
+
         
     }
    
@@ -160,7 +165,13 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             (_, successful, _, _) in
             if successful{
                 let meme = Meme(topText: self.topTextField.text!, bottomText: self.bottomTextField.text!, originalImage: self.imageView.image!, memedImage: self.memedImage)
-
+                
+                // Add it to the memes array in the Application Delegate
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.memes.append(meme)
+                
+                self.dismiss(animated: true, completion: nil)
+            
             }
         }
         
