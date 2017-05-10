@@ -2,7 +2,7 @@
 The app allows user to takes pictures and overlays text to make memes out of friends, family, or pets. Also allows sharing with others via social media or email, and viewing past memes in a table or collection view.
 
 ## Technologies Used
-UIKit, Swift, presenting view controllers, delegate pattern, UIControls, tables, collections,tabs, navigation
+UIKit, Swift, presenting view controllers, delegate pattern, UIControls, tables, collections, tabs, navigation
 
 ## Install
 ```
@@ -10,8 +10,8 @@ UIKit, Swift, presenting view controllers, delegate pattern, UIControls, tables,
 ```
 
 ## Usage 
-- First, the user records his voice.
-- Finally, the user can apply six different effects to the audio recorded.
+- 
+- 
 
 ## Screenshot 
 ![Alt text](/ScreenShot/screenshot.jpg?raw=true "") 
