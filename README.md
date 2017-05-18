@@ -24,7 +24,7 @@ Selecting a meme from the table or collection presents the Meme Detail View. Cl
 
 
 ## Screenshot 
-![Alt text](/ScreenShot/screenshot.jpg?raw=true "") 
+![Alt text](/ScreenShot/screenshot.png?raw=true "") 
 
 ## License
 The contents of this repository are covered under the [MIT License](LICENSE).
